@@ -31,7 +31,8 @@ export default class Carousel extends Component {
         sneak: PropTypes.number,
         transitionDelay: PropTypes.number,
         currentPage: PropTypes.number,
-        swipeThreshold: PropTypes.number
+        swipeThreshold: PropTypes.number,
+        scrollEnabled : PropTypes.bool,
     };
 
     static defaultProps = {
@@ -43,7 +44,8 @@ export default class Carousel extends Component {
         noItemsText: "Sorry, there are currently \n no items available",
         transitionDelay: 0,
         currentPage: 0,
-        swipeThreshold: 0.5
+        swipeThreshold: 0.5,
+        scrollEnabled : true
     };
 
     constructor(props) {
@@ -243,6 +245,7 @@ export default class Carousel extends Component {
                     onScrollEndDrag={ this._handleScrollEnd }
                     ref={ c => this.scrollView = c }
                     showsHorizontalScrollIndicator={ false }
+scrollEnabled={this.props.scrollEnabled}
                 >
                     { body }
                 </ScrollView>
